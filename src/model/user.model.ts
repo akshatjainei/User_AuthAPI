@@ -18,11 +18,12 @@ import log from "../utils/logger";
     },
     options:{
         allowMixed: Severity.ALLOW,
-    }
+    },
 })
 export class User{
     @prop({ lowercase: true, required: true, unique: true })
-    email : string
+    email : string;
+    
     @prop({ required: true })
     firstName: string;
 

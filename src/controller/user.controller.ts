@@ -6,12 +6,9 @@ import log from "../utils/logger";
 export async function createUserHandler(req : Request<{},{},CreateUserInput>, res : Response) {
     const body = req.body
     try {
-        const user = await createUser(req.body)
+        const user = await createUser(body)
         return res.send("User created Successfuly")
     } catch (error) {
-        if(error === 11000){
-            return res.status(409).send('Account already exists')
-        }
         return res.status(500).send(error)
     }
 }
